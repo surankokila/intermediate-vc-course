@@ -1,16 +1,32 @@
 ---
 layout: page
-title: Introduction to ...
+title: Git Tutorial
 order: 2
 session: 1
 length: 20
 toc: true
 ---
 
-## Learning Objectives
-At the end of this lesson you will be able to
+## Git Tutorial
 
-- define what a variable is
+We'll start by running through a tutorial covering configuration, committing changes, GitHub, pushing and pulling, tagging, branching, and merging.
 
-## Introduction to variables
+This should be mostly familiar, perhaps will a few tasks you've not met before.
+The intention is to give a demonstration of a typical workflow.
+It will also serve as a checkpoint, making sure that we have our credentials set up to access GitHub from our terminal.
 
+### Open a new directory in the terminal
+
+To start, we want to create a new directory, and have a terminal open in this directory.
+This step will change depending on the operating system (OS) we're working will, and will be demonstrated in the classroom.
+
+### Check the version of git
+
+From the terminal, we want to confirm that git is installed.
+
+``` none
+$ git --version
+git version 2.45.0.windows.1
+```
+
+Your output may change depending on your OS and how recently git was installed.
