@@ -170,11 +170,19 @@ To apply the changes we made in the `feature` branch, make a new *merge* commit:
 git merge feature
 ```
 
+### Reviewing the repository and tidying up
+
 Looking in the editor we should now see both the file `story.md` along with the updated file `README.md`.
-In addition to this, the commits are are visible through the log:
+All the changes we've made are visible through the log:
 
 ``` sh
 git log
+```
+
+To see a more concise log, use
+
+``` sh
+git log --oneline --all --graph
 ```
 
 We can tidy up our repository and safely delete the `feature` branch.
