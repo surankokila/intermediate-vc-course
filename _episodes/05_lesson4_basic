@@ -1,0 +1,45 @@
+---
+layout: page
+title: Basic Git
+order: 5
+session: 1
+length: 10
+toc: true
+adapted: false
+---
+
+## Basic Git
+
+TODO:
+
+### Getting Help on Git Commands
+
+TODO: Done in lesson 4?
+
+### Basic Git Recap
+
+TODO:
+
+- Starting out
+  - Init
+  - Clone
+- Getting information
+  - Status
+  - Log
+- Creating snapshots
+  - Add
+  - Commit
+- Restoring previous snapshots
+  - Reset
+  - Checkout
+- Ignoring files
+  - `.gitignore`
+  - `.git/info/exclude`
+
+### Git's Three Locations
+
+TODO:
+
+- Work directory
+- Staging area
+- Local Repository
