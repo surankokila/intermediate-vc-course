@@ -10,7 +10,7 @@ adapted: false
 
 ## Configuring Git
 
-We will now go through the commands used in our tutorial, starting with the configuration commands, `git config`.
+For this course we will go through the commands used in our tutorial, starting with the configuration commands, `git config`.
 
 ### Getting help in Git
 

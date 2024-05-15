@@ -3,7 +3,7 @@ layout: page
 title: Git Tutorial 2
 order: 3
 session: 1
-length: 10
+length: 15
 toc: true
 ---
 
@@ -112,7 +112,7 @@ git add story.md
 git commit --message "New file story.md"
 ```
 
-We can now see the extra commit with
+We can see the extra commit with
 
 ``` sh
 git log
@@ -121,6 +121,7 @@ git log
 ### Make a change to README through GitHub
 
 We can also make changes to files directly in GitHub.
+This is typically reserved for small changes to documentation files.
 To see this in action, navigate to `README.md` in the browser, and click the edit button which looks like a pencil (✏️).
 
 Add the date to the line with your name, then go through the "Save Changes" dialogue, adding an appropriate commit message.
@@ -147,7 +148,7 @@ git switch main
 To apply the changes we made in the `feature` branch, make a new *merge* commit:
 
 ``` sh
-git merge feature
+git merge feature --message "Merge feature into main"
 ```
 
 ### Reviewing the repository and tidying up
