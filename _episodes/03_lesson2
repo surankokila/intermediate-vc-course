@@ -58,6 +58,12 @@ We can now see the new commit, along with the original commit:
 git log
 ```
 
+We can tag this commit with the title `v1` with
+
+``` sh
+git tag v1
+```
+
 ### Push the commit and the tag
 
 Looking at the status again,
