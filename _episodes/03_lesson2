@@ -58,20 +58,6 @@ We can now see the new commit, along with the original commit:
 git log
 ```
 
-### Tag the commit
-
-We can add a *tag* to this commit simply with the command
-
-``` sh
-git tag v0.1
-```
-
-Looking again at the log, we see this tag attached to the most recent commit:
-
-``` sh
-git log
-```
-
 ### Push the commit and the tag
 
 Looking at the status again,
@@ -88,13 +74,7 @@ To get the most recent commit on the `main` branch to the remote `origin`, use
 git push origin main
 ```
 
-To also push the tag we created to the remote `origin`, use
-
-``` sh
-git push origin tag v0.1
-```
-
-Opening the GitHub page with our browser, we can see the new commit and tag.
+Opening the GitHub page with our browser, we can see the new commit.
 
 ### Add a file to a new branch called "feature"
 
