@@ -10,36 +10,118 @@ adapted: false
 
 ## Basic Git
 
-TODO:
+We're going to review some git commands used to create a basic series of snapshots of our code.
+This will cover setting up a repository, seeing the status and history, creating new snapshots, and restoring previous snapshots of the directory.
+We'll also look into what's happening "behind the scenes" to enable this workflow.
 
-### Getting Help on Git Commands
+We'll cover commands for setup (`init` and `clone`), info (`status` and `log`), making snapshots (`add` and `commit`) and loading snapshots (`reset` and `checkout`).
 
-TODO: Done in lesson 4?
+### Getting Help on Commands
+
+Recall that we can see information on git commands with the `-h` flag.
+For example, to see the help for `commit`, use
+
+``` sh
+git commit -h
+```
 
 ### Basic Git Recap
 
+#### Starting out: `init` and `clone`
+
+If we have a directory that isn't currently managed by git (and isn't a subdirectory of one that is), we can initialise git with
+
+``` sh
+git init
+```
+
+This will create a hidden directory called `.git/` and allow us to start adding files and creating snapshots.
+
+If a codebase is available over a network (such as on GitHub), we can get a local copy of the repository and its history with
+
+``` sh
+git clone <repository>
+```
+
+where `<repository>` is a URL or path to the repository.
+
+#### Getting information: `status` and `log`
+
 TODO:
 
-- Starting out
-  - Init
-  - Clone
-- Getting information
-  - Status
-  - Log
-- Creating snapshots
-  - Add
-  - Commit
-- Restoring previous snapshots
-  - Reset
-  - Checkout
-- Ignoring files
-  - `.gitignore`
-  - `.git/info/exclude`
+To get general information of changes that have been made to the files since the last snapshot, as well as other information on the branch and any conflicts, use
 
-### Git's Three Locations
+``` sh
+git status
+```
+
+To see the history of the current branch, right back to the first commit, we can use
+
+``` sh
+git log
+```
+
+This will start *paging* the contents of the log.
+We can step through extra pages with the `Space` key, or stop the pager entirely with `q`.
+The basic form of the log is not always the most useful, so we can modify this with arguments to change
+
+- the range and number of commits (e.g., `git log -n 2`)
+- which commits are shown (e.g., `git log --simplify-by-decoration`)
+- the format of the log output (e.g., `git log --oneline`).
+
+We can see the full list of arguments from the [https://git-scm.com/docs/git-log](online help).
+
+Try different combinations of the following arguments.
+
+- `--oneline`
+- `--all`
+- `--graph`
+
+#### Creating snapshots: `add` and `commit`
+
+In order to prepare a snapshot, we need to tell git which changes the *stage*.
+This is done with the add command
+
+``` sh
+git add <pathspec>
+```
+
+where `<pathspec>` is a path to a file, such as
+
+``` sh
+git add README.md
+```
+
+or a *glob* pattern to match all matching files, such as adding all files ending in `.txt` with
+
+``` sh
+git add *.txt
+```
+
+When we've added all the changes we want to snapshot (and checked the output of `git status`) we can create a new commit with
+
+``` sh
+git commit --message "Commit message here"
+# equivalently git commit -m "Commit message here"
+```
+
+If we omit the `-m`/`--message` argument, git will open an editor to prompt us to enter a message.
+This will typically be either nano or vim - examples of both will be demonstrated in the session.
+
+#### Restoring previous snapshots: `reset` and `checkout`
+
+TODO:
+
+### Ignoring files
+
+- `.gitignore`
+- `.git/info/exclude`
+
+### Behind the Scenes: Git's Four Locations
 
 TODO:
 
 - Work directory
 - Staging area
 - Local Repository
+- Remote Repository
