@@ -3,7 +3,7 @@ layout: page
 title: Basic Git
 order: 5
 session: 1
-length: 10
+length: 45
 toc: true
 adapted: false
 ---
@@ -27,15 +27,45 @@ git commit -h
 
 ### Basic Git Recap
 
+Here is a quick summary of the commands we will cover in this lesson:
+
+- `git init` will start tracking changes in the current directory.
+- `git clone` will create a copy of a repository, such as from GitHub.
+- `git status` will show us differences in the repository relative to the last snapshot.
+- `git log` will show us all the previous snapshots that led to the current state of the repository.
+- `git add` will mark changes to be included in the next snapshot.
+- `git commit` will make a new snapshot from the files marked with `add`.
+- `git reset` will undo the actions of `add`, removing the changes from the next snapshot.
+- `git checkout` will load a previous state of the code.
+
+Before looking at the details of these commands, we'll briefly discuss how git is storing the information required for tracking the version history.
+
+### Behind the Scenes: Git's Three Locations
+
+Conceptually, it's helpful to thing of git commands managing the state of three locations:
+
+- Work directory
+- Staging area
+- Local Repository
+
+The **Work Directory** is simply the files you can see in the root directory (with the exception of `.git/`).
+If we weren't using any form of version control, we would have to be very careful with changes made to our files.
+
+The **Staging Area** represents the changes made to our files that will be used for the next snapshot.
+
+The **Local Repository** contains all the snapshots of our files.
+
+The key concept of version control with git is moving changes between these three locations.
+
 #### Starting out: `init` and `clone`
 
-If we have a directory that isn't currently managed by git (and isn't a subdirectory of one that is), we can initialise git with
+If we have a directory that isn't currently managed by git (and isn't a subdirectory of one that is),
 
 ``` sh
 git init
 ```
 
-This will create a hidden directory called `.git/` and allow us to start adding files and creating snapshots.
+will create a (hidden) directory called `.git/` and allow us to start adding files and creating snapshots.
 
 If a codebase is available over a network (such as on GitHub), we can get a local copy of the repository and its history with
 
@@ -44,18 +74,21 @@ git clone <repository>
 ```
 
 where `<repository>` is a URL or path to the repository.
+By default this will get the full repository, including the full history of the default branch.
+All previous snapshots will be available locally (stored in the `.git/` directory)
 
 #### Getting information: `status` and `log`
 
-TODO:
-
-To get general information of changes that have been made to the files since the last snapshot, as well as other information on the branch and any conflicts, use
+To get general information of changes that have been made to the files since the last snapshot, use
 
 ``` sh
 git status
 ```
 
-To see the history of the current branch, right back to the first commit, we can use
+With regards to the "Three Locations", it will tell us how the **Work Directory** differs from the **Staging Area** and the most recent commit in the **Local Repository**.
+The `status` command also shows information on the branch, any linked remote repositories, and updates from some more involved git commands.
+
+To see the history of the repository we can use
 
 ``` sh
 git log
@@ -92,36 +125,70 @@ where `<pathspec>` is a path to a file, such as
 git add README.md
 ```
 
-or a *glob* pattern to match all matching files, such as adding all files ending in `.txt` with
+This will move changes from the specified file from the **Work Directory** to the **Staging Area**.
+
+We can also use a *glob* pattern to match all matching files, such as adding all files ending in `.txt` with
 
 ``` sh
 git add *.txt
 ```
 
-When we've added all the changes we want to snapshot (and checked the output of `git status`) we can create a new commit with
+We can move all changes to the **Staging Area** with the `--all` argument, although this often results in staging changes we didn't want tracked.
+
+When we've added all the changes we want to the **Staging Area** (and checked the output of `git status`) we can create a new commit with
 
 ``` sh
 git commit --message "Commit message here"
 # equivalently git commit -m "Commit message here"
 ```
 
+This will create a new commit in the **Local Repository** from the **Staging Area**.
+
 If we omit the `-m`/`--message` argument, git will open an editor to prompt us to enter a message.
 This will typically be either nano or vim - examples of both will be demonstrated in the session.
 
-#### Restoring previous snapshots: `reset` and `checkout`
+#### Restoring previous snapshots: `checkout`
 
-TODO:
+To see a previous version of the code, we need an ID of the version.
+This will either be from `git log`, or a named reference (typically the name of a tag or branch, or a modification of `HEAD`).
+
+One example of a reference is `HEAD^`, being the commit before the most recent one (`HEAD` is the current commit, `HEAD^` is the *parent* of that commit).
+
+The command
+
+``` sh
+git checkout HEAD^
+```
+
+will extract the commit from the **Local Repository** and change the **Working Directory** to match it.
+
+To get back to the most recent snapshot, we can use
+
+``` sh
+git checkout main
+```
+
+### The `.git` Directory
+
+The `.git` directory contains all the local files that git uses.
+
+- local options (`.git/config`)
+- information on the most recent snapshot (`.git/HEAD`)
+- binary objects containing past snapshots and the staged files (`.git/objects`)
+- references to any tags, branches and remotes (`.git/refs/`)
+
+Almost all changes made to `.git/` should be handled by git commands (we will see a few rare exceptions later).
 
 ### Ignoring files
 
-- `.gitignore`
-- `.git/info/exclude`
+We can tell git that we never want to track changes in a file by adding it to a special file named `.gitignore`.
+This file is typically tracked by git itself.
+With this file in place, we wont get prompts about changes to this file from `git status`.
+It will also be ignored by commands such as `git add --all` and `git commit --all`, although it's best not to rely on this in case you move to a previous version with an old `.gitignore` file.
 
-### Behind the Scenes: Git's Four Locations
+There are times when we have files to be ignored on the local system but we don't want them stored in the repository in the `.gitignore`.
+In these cases we can alternatively use `.git/info/exclude` - one of the rare exceptions to "leave `.git/` alone".
+
+### Exercise
 
 TODO:
-
-- Work directory
-- Staging area
-- Local Repository
-- Remote Repository
