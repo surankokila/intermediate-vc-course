@@ -14,7 +14,7 @@ We're going to review some git commands used to create a basic series of snapsho
 This will cover setting up a repository, seeing the status and history, creating new snapshots, and restoring previous snapshots of the directory.
 We'll also look into what's happening "behind the scenes" to enable this workflow.
 
-We'll cover commands for setup (`init` and `clone`), info (`status` and `log`), making snapshots (`add` and `commit`) and loading snapshots (`reset` and `checkout`).
+We'll cover commands for setup (`init` and `clone`), info (`status` and `log`), making snapshots (`add` and `commit`) and loading snapshots (`restore` and `checkout`).
 
 ### Getting Help on Commands
 
@@ -35,7 +35,7 @@ Here is a quick summary of the commands we will cover in this lesson:
 - `git log` will show us all the previous snapshots that led to the current state of the repository.
 - `git add` will mark changes to be included in the next snapshot.
 - `git commit` will make a new snapshot from the files marked with `add`.
-- `git reset` will undo the actions of `add`, removing the changes from the next snapshot.
+- `git restore` will undo the actions of `add`, removing the changes from the next snapshot.
 - `git checkout` will load a previous state of the code.
 
 Before looking at the details of these commands, we'll briefly discuss how git is storing the information required for tracking the version history.
@@ -48,12 +48,12 @@ Conceptually, it's helpful to thing of git commands managing the state of three 
 - Staging area
 - Local Repository
 
-The **Work Directory** is simply the files you can see in the root directory (with the exception of `.git/`).
+The **Work Directory** (or **workspace**) is simply the files you can see in the root directory (with the exception of `.git/`).
 If we weren't using any form of version control, we would have to be very careful with changes made to our files.
 
-The **Staging Area** represents the changes made to our files that will be used for the next snapshot.
+The **Staging Area** (or **index**) represents the changes made to our files that will be used for the next snapshot.
 
-The **Local Repository** contains all the snapshots of our files.
+The **Local Repository** (or **repository**) contains all the snapshots of our files.
 
 The key concept of version control with git is moving changes between these three locations.
 
@@ -134,6 +134,11 @@ git add *.txt
 ```
 
 We can move all changes to the **Staging Area** with the `--all` argument, although this often results in staging changes we didn't want tracked.
+To remove a file from the index, we can use `restore`, for example
+
+``` sh
+git restore --staged README.txt
+```
 
 When we've added all the changes we want to the **Staging Area** (and checked the output of `git status`) we can create a new commit with
 

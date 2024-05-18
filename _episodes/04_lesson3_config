@@ -47,6 +47,18 @@ If you want to bring your git configurations to a new system or make use of some
 
 While changes can be made to this file, we shall stick to using the command.
 
+### Setting the Default Editor
+
+There are times where git will open a text editor for us.
+We can tell git what program to invoke in these situations.
+For this course we will be using the terminal based editor nano.
+
+To set the editor used by git to nano, we enter the `config` command
+
+``` sh
+git config --global core.editor nano
+```
+
 ### Setting Aliases
 
 Over the course of the tutorial we saw some long commands, and other commands repeated again and again.
