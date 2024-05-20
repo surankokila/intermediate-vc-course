@@ -14,7 +14,7 @@ We're going to review some git commands used to create a basic series of snapsho
 This will cover setting up a repository, seeing the status and history, creating new snapshots, and restoring previous snapshots of the directory.
 We'll also look into what's happening "behind the scenes" to enable this workflow.
 
-We'll cover commands for setup (`init` and `clone`), info (`status` and `log`), making snapshots (`add` and `commit`) and loading snapshots (`restore` and `checkout`).
+We'll cover commands for setup (`init` and `clone`), info (`status`, `diff` and `log`), making snapshots (`add` and `commit`) and loading snapshots (`restore` and `checkout`).
 
 ### Getting Help on Commands
 
@@ -31,7 +31,8 @@ Here is a quick summary of the commands we will cover in this lesson:
 
 - `git init` will start tracking changes in the current directory.
 - `git clone` will create a copy of a repository, such as from GitHub.
-- `git status` will show us differences in the repository relative to the last snapshot.
+- `git status` will show us differences in the workspace relative to the last snapshot.
+- `git diff` will show the line-by-line differences relative to the last snapshot.
 - `git log` will show us all the previous snapshots that led to the current state of the repository.
 - `git add` will mark changes to be included in the next snapshot.
 - `git commit` will make a new snapshot from the files marked with `add`.
@@ -77,7 +78,7 @@ where `<repository>` is a URL or path to the repository.
 By default this will get the full repository, including the full history of the default branch.
 All previous snapshots will be available locally (stored in the `.git/` directory)
 
-#### Getting information: `status` and `log`
+#### Getting information: `status`, `diff` and `log`
 
 To get general information of changes that have been made to the files since the last snapshot, use
 
@@ -87,6 +88,15 @@ git status
 
 With regards to the "Three Locations", it will tell us how the **Work Directory** differs from the **Staging Area** and the most recent commit in the **Local Repository**.
 The `status` command also shows information on the branch, any linked remote repositories, and updates from some more involved git commands.
+
+We can get more detail about what changed with the `diff` command:
+
+``` sh
+git diff
+```
+
+Without any additional arguments, `diff` shows us the line-by-line changes between the **Work Directory** and the **Staging Area**.
+We can supply additional arguments to file differences between commits.
 
 To see the history of the repository we can use
 
@@ -106,9 +116,11 @@ We can see the full list of arguments from the [https://git-scm.com/docs/git-log
 
 Try different combinations of the following arguments.
 
-- `--oneline`
-- `--all`
-- `--graph`
+- `--oneline` (show a oneline summary of the commit)
+- `--all` (show all commits, not just those in the current commit's history)
+- `--graph` (render a graph to visualise branching and merging)
+
+Some other useful arguments are `--grep` (search for specific changes), `--patch` (show line-by-line changes) and `--stat` (summarise how many lines in each file changed).
 
 #### Creating snapshots: `add` and `commit`
 
@@ -194,6 +206,14 @@ It will also be ignored by commands such as `git add --all` and `git commit --al
 There are times when we have files to be ignored on the local system but we don't want them stored in the repository in the `.gitignore`.
 In these cases we can alternatively use `.git/info/exclude` - one of the rare exceptions to "leave `.git/` alone".
 
+### Summary
+
+We have taken an in-depth look at the basic git commands that allow us to create a chain of commits, and review the history of our files.
+In the next lesson we'll be looking at branching, which allows us to maintain and track multiple versions of our code.
+
 ### Exercise
 
-TODO:
+Explore the help files of some of the commands we've seen in this lesson.
+Would any of these be worth creating a new alias for?
+
+Discuss what you've found with your course mates.
