@@ -1,0 +1,115 @@
+** Intermediate Version Control                                         :T03:
+- Note taken on [2024-05-08 Wed 15:31] \\
+  To be delivered <2024-05-21 Tue> and <2024-05-28 Tue>.
+*** TODO [0/6] Discussion with Linus about course            :MEETING:T03:LT:
+- Note taken on [2024-05-17 Fri 17:24] \\
+  Meeting with Linus Tata.
+- Note taken on [2024-05-17 Fri 17:19]
+To action.
+ - [ ] Next work, Push, pull, branches, tag, merge.
+ - [ ] In tutorial part 1, ensure download is https.
+ - [ ] In config, set the default editor to be ~nano -w~.
+ - [ ] Command ~open .~ is mac equivalent to ~explorer .~ on windows.
+ - [ ] Change ~git reset~ to ~git restore --staged~.
+ - [ ] For credentials help, link the Intro to git course.
+*** [5/7] Intermediate VCS Session 1
+**** DONE Outline
+CLOSED: [2024-05-14 Tue 16:00]
+Outline of Course; What will be covered, format of exercises
+
+(command line for demos)
+
+Pre-requisites:
+ - git
+ - Terminal
+   - Git Bash on Windows (installed with git)
+ - GitHub account
+ - VS Code (or an editor that we can call from the command line)
+**** DONE Setup check
+CLOSED: [2024-05-14 Tue 16:00]
+ - ~git --version~
+ - git config - username and e-mail address
+ - Connect to github
+**** DONE Speedy tutorial (15 mn)
+CLOSED: [2024-05-14 Tue 16:00]
+Run through a worked example demonstrating the config, working with
+GitHub, pushing, pulling, tagging, branching and merging.
+ - Create a new directory and move to it in the terminal
+ - In the terminal check the version of git
+ - Set up username and e-mail for git
+ - On GitHub, create a new repository and type the lines into the shell
+ - Add extra text to the file; check ~git status~, add files then make
+   a new commit (use the longer form of the git message)
+ - Tag this commit
+ - Push commit and the tag - have a look at this on GitHub
+ - Create a new branch, checkout the new branch, add a new file, commit
+ - Check ~git log --oneline --all --graph~
+ - On GitHub add a new commit on main - pull this locally
+ - Merge the branch into main and push
+ - Delete the branch
+**** DONE Basic Git
+CLOSED: [2024-05-17 Fri 17:24]
+ - Getting help on git commands
+ - Init
+ - Add
+ - See what will be added
+ - Commit
+   - What makes a good commit message
+ - Viewing the project history
+ - Viewing an individual commit log
+ - Ignoring files
+ - gitk
+**** DONE Configuring git
+CLOSED: [2024-05-14 Tue 17:20]
+- Note taken on [2024-05-14 Tue 17:21] \\
+  Added as section 4 - maybe move this to after a section on staging area.
+ - Git config command, git config file.
+ - How to see your global config
+ - Aliases
+ - How to set an alias for git st
+ - How to set up an alias for a terse git log
+**** TODO Working with Remotes
+ - What is a remote
+ - How to view the full path of remotes
+   ~git remote show origin~
+ - Alternative to GitHub
+**** TODO Tags, Branches and References
+ - Creating branches
+ - Changing branches
+ - Deleting branches
+ - Dealing with merge conflicts
+**** TODO Viewing a previous state of the code
+*** [0/5] Intermediate VCS Session 2
+**** TODO Undoing work
+ - amend
+ - unstage
+ - reset to unmodified version
+**** TODO Stashing work-in-progress
+**** TODO Collaborating with GitHub
+ - Forking and cloning repositories
+ - What makes a good commit message (recap)
+ - Issues and pull requests
+ - Merging on github
+ - contributing document
+ - Licenses
+ - Collaboration workflows
+ - Open source projects
+**** TODO Rewriting the history
+ - Common courtesy
+ - Rebasing on branch
+ - Rebasing onto another branch
+ - How to get unstuck: reflog
+**** TODO Top 10 not covered
+ - Alternative to git (SVN, mercurial)
+ - Git log "pick-axe"
+ - Cherry-pick
+ - Git hooks
+ - GitHub actions
+ - Signing commits
+ - Other forms of authentication/credential storage
+ - git bisect
+ - GitHub-LFS
+ - Submodules
+ - Reduced clones (sparse-checkout, filtered checkout)
+ - git blame
+ - git ls-remote

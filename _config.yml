@@ -1,11 +1,11 @@
 # Basic options
-title: Workshop Name
-short_name: workshop-name
-developers: [A name]
-description: One sentence description of workshop.
-n_sessions: 3
-prereq: NA
-url: https://uniexeterrse.github.io/repo-name
+title: Intermediate Version Control
+short_name: intermediate-vc
+developers: [Stephen Cook]
+description: Version control for intermediate workflows and collaboration.
+n_sessions: 2
+prereq: Introduction to Version Control
+url: https://coding-for-reproducible-research.github.io/intermediate-version-control
 
 # Specify that things in the episodes collection should be output.
 collections:
