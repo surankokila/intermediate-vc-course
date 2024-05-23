@@ -206,6 +206,14 @@ It will also be ignored by commands such as `git add --all` and `git commit --al
 There are times when we have files to be ignored on the local system but we don't want them stored in the repository in the `.gitignore`.
 In these cases we can alternatively use `.git/info/exclude` - one of the rare exceptions to "leave `.git/` alone".
 
+### Git's Fourth Location
+
+In addition to the workspace, index and local repository, we frequently work with **remote repositories**, often described as git's fourth location.
+Changes are moved between the local and remote repository with `push` and `fetch`/`pull`.
+These commands will be used extensively in the second session.
+
+![The four locations (workspace, index, repository and remote repository) and some operations moving changes between them](../images/three-four-spaces.png)
+
 ### Summary
 
 We have taken an in-depth look at the basic git commands that allow us to create a chain of commits, and review the history of our files.
