@@ -82,6 +82,44 @@ One potentially useful view is *only* the commits with references:
 git log --oneline --simplify-by-decoration
 ```
 
+### Creating Commits on Branches
+
+If a branch is checked out (`HEAD` points at the branch), the branch reference is updated when we add commits.
+
+This is demonstrated in the following example.
+
+If we consider two commits:
+
+- `a1a` with tag `v1` and branch `main`; and
+- `2f7` with tag `v2` and currently checked-out branch `feature`:
+
+``` none
+            HEAD
+ main     feature
+  v1         v2
+  |          |
+ a1a   ->   2f7
+```
+
+The `HEAD` is following `feature` and currently at `2f7`.
+If we create a new commit now (say `83c`):
+
+- `83c` will be a child of `2f7`,
+- the `HEAD` and `feature` references will both be updated to `83c`,
+- but the tag `v2` (and `v1` and the branch `main`) be remain unchanged.
+
+``` none
+ main                  HEAD
+  v1         v2      feature
+  |          |          |
+ a1a   ->   2f7   ->   83c
+```
+
+If we were to move to the `main` branch (with `git switch main`) and add a new commit, our history would diverge.
+This happens frequently when collaborating on a repository.
+
+![A chain of commits with a diverging history.](images/history2.png)
+
 ### Merging
 
 Returning to branches, a typical way of working on code is to use a branch (appropriately named) to develop a single feature.
