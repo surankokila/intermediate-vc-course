@@ -118,7 +118,7 @@ If we create a new commit now (say `83c`):
 If we were to move to the `main` branch (with `git switch main`) and add a new commit, our history would diverge.
 This happens frequently when collaborating on a repository.
 
-![A chain of commits with a diverging history.](images/history2.png)
+![A chain of commits with a diverging history.](../images/history2.png)
 
 ### Merging
 
