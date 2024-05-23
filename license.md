@@ -3,4 +3,4 @@ layout: info_page
 title: License
 ---
 
-{% include LICENSE %}
+{% include_relative LICENSE %}
