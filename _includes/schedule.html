@@ -6,12 +6,12 @@
     <th>Content</th>
     <th>Duration (minutes)</th>
   </tr>
-  
+
   {% for node in sorted_pages %}
     <tr>
     <td>{{ node.session }}</td>
-    <td>{{ node.title }}</td>
+    <td><a href="{{ node.url }}">{{ node.title }}</a></td>
     <td>{{ node.length }}</td>
   </tr>
 {% endfor %}
-</table> 
+</table>
