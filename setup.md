@@ -23,4 +23,3 @@ Attendees familiar with another IDE or editor (such as RStudio or vim) will be a
 
 Attendees can register for a free GitHub account at <https://github.com/>.
 Please follow the instructions at [Managing your personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens), making a note of your username and personal access token.
-Alternatively, attendees can download and configure the [Git Credential Manager](https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git#git-credential-manager).
