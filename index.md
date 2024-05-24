@@ -25,7 +25,8 @@ Participants are expected to already be familiar with a basic version control wo
 
 ## Workshop format
 
-This a hybrid workshop run over two sessions. The [schedule can be found here](https://coding-for-reproducible-research.github.io/intermediate-version-control/schedule.html).
+This a hybrid workshop run over two sessions.
+The [schedule can be found here](schedule.html).
 
 ## Upcoming course dates
 
@@ -39,11 +40,11 @@ Registration for this course is handled by [University of Exeter Researcher Deve
 
 ## Set-up instructions for attendees
 
-If you have registered for this course you can find the [instructions for setting up your computer here.](https://coding-for-reproducible-research.github.io/intermediate-version-control/setup.html).
+If you have registered for this course you can find the [instructions for setting up your computer here.](setup.html).
 
 ## Start course
 
-If you are unable to attend any of the dates above the [notes for this course are available here]((https://coding-for-reproducible-research.github.io/intermediate-version-control/contents.html)) and are freely available to work through in your own time.
+If you are unable to attend any of the dates above the [notes for this course are available here](contents.html) and are freely available to work through in your own time.
 Please note that you will need to have completed the set up instructions above.
 
 ## Follow up courses
@@ -64,9 +65,9 @@ If you are interested in becoming part of our community of workshop helpers, lea
 
 ## Acknowledgements
 
-This course was adapted from the Introduction to Version Control course and has been developed by the University of Exeter's Research Software Engineering Group and [a team of generous volunteers](https://coding-for-reproducible-research.github.io/intermediate-version-control/acknowledgements.html) who are enthusiastic about sharing their skills with the wider research community.
+This course was adapted from the Introduction to Version Control course and has been developed by the University of Exeter's Research Software Engineering Group and [a team of generous volunteers](acknowledgements.html) who are enthusiastic about sharing their skills with the wider research community.
 Its provision is dependent on the time of these volunteers.
-If you have benefitted in any way from this course and want to support its long term sustainability then please take the time to complete our feedback survey, recommend it to your colleagues, and enthuse about it to your senior leadership team.
+If you have benefited in any way from this course and want to support its long term sustainability then please take the time to complete our feedback survey, recommend it to your colleagues, and enthuse about it to your senior leadership team.
 
 This workshop is brought to you by:
 
