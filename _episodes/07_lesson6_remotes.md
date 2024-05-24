@@ -2,7 +2,7 @@
 layout: page
 title: Remotes - GitHub
 order: 7
-session: 1
+session: 2
 length: 20
 toc: true
 adapted: false
@@ -10,7 +10,7 @@ adapted: false
 
 ## Working with Remotes
 
-At the start of the session we first created our repository on GitHub.
+At the start of the first session we created our *remote* repository on GitHub.
 We then linked our *local repository* with the *remote repository*.
 Git then tracks branches on the remote repository.
 
@@ -28,6 +28,15 @@ git remote show origin
 GitHub is useful, since it has extensive tooling to allow collaboration (more on this in the next session).
 There are alternative which serve a similar purpose (such as Bitbucket and GitLab).
 
+### Aside: Anonymising Your E-Mail
+
+We are potentially going to be pushing changes to public repositories.
+If you would rather not have the commits associated with your e-mail address, we can use an anonymised GitHub one.
+This e-mail address has the form `########+USERNAME@users.noreply.github.com`, with digits and your username, and can be found through your GitHub user settings under E-mail:
+
+- There is a tick-box for using this substitution e-mail address for actions on GitHub;
+- and this is where you can find the e-mail address to use with `git config --global user.email`.
+
 ### Sending Changes to GitHub
 
 Since we are working with our own repository, we have the relevant permissions to upload our local changes to our remote repository.
@@ -42,6 +51,7 @@ When uploading a new branch, we can specify that we want git to keep track of di
 git push -u origin feature-branch
 ```
 
+The flag `-u` is the short form of `--set-upstream`.
 If we use `git checkout` and supply a branch-name that only exists on a remote, git will automatically set up branch tracking for us.
 
 ### Fetch From Remote
@@ -57,6 +67,12 @@ To see this on our local copy, we'll have to use the `--all` flag in `log`:
 
 ``` sh
 git log --oneline --graph --all --simplify-by-decoration
+```
+
+We can see the remote tracking branches either with `remote show origin` (seen above), or with a doubly-verbose form of `branch`:
+
+``` sh
+git branch -vv
 ```
 
 In order to get these changes onto our branch, we have to fast-forward with `git merge`.
@@ -96,8 +112,7 @@ Even if you don't intend on making any changes, you will have a copy which canno
 
 We have seen how to work with remote repositories, and how download and upload changes.
 
-This concludes the first session of the Intermediate Version.
-In the next session we will look at typical workflows using GitHub.
+In the next remainder of this session we will look at typical workflows using GitHub.
 We'll also see how we can rewrite our history, as well as the tools we have available to get unstuck when applying these more complicated changes.
 
 ### Exercise
