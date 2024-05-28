@@ -9,7 +9,7 @@ adapted: false
 ---
 
 ## Working with Remotes
-
+## Added new text
 At the start of the first session we created our *remote* repository on GitHub.
 We then linked our *local repository* with the *remote repository*.
 Git then tracks branches on the remote repository.
